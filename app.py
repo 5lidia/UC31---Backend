@@ -29,7 +29,7 @@ def semestre(x):
 def pagamento(valor):
     return 'Você pagou: '+ str(valor)
    
-#Questões
+#Questões 3 e 4
 
 @app.route("/arearestrita/<id>")
 def area(id):
