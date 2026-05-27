@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Login</h2>
+
+        <form action="{{url_for('recebedados')}}" method="post">
+            <label>Nome: </label>
+            <input type="text" name="nome"> <br />
+            <label>E-mail: </label>
+            <input type="text" name="email"><br />
+            <label>Senha: </label>
+            <input type="text" name="senha"><br />
+
+            <label>Estado: </label>
+            <select name="estado">
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="PB">Paraíba</option>
+                <option value="PE">Pernambuco</option>
+                <option value="CE">Ceará</option>
+            </select>
+
+            <label>Qual a sua formação?: </label>
+            <input type="radio" name="formacao" value="fundamental">Ensino fundamental <br>
+            <input type="radio" name="formacao" value="medio">Ensino Médio <br>
+            <input type="radio" name="formacao" value="superior">Ensino Superior <br>
+
+            <label>Selecione as modalidades de interesse:</label>
+            <input type="checkbox" name="modalidades" value="Natação">Natação <br>
+            <input type="checkbox" name="modalidades" value="Vôlei">Vôlei <br>
+            <input type="checkbox" name="modalidades" value="Futebol">Futebol <br>
+            <input type="checkbox" name="modalidades" value="Judô">Judô <br>
+
+            <button type="submit">Enviar</button>
+        </form>
+</body>
+</html>
