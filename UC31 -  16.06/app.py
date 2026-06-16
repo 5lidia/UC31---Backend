@@ -23,6 +23,8 @@ PRODUTOS = [
     {'id': 3, 'nome': 'Teclado',   'preco': 150.00},
     {'id': 4, 'nome': 'Monitor',   'preco': 1200.00},
     {'id': 5, 'nome': 'Headphone', 'preco': 250.00},
+    {'id': 6, 'nome': 'Webcam', 'preco': 300.00},
+
 ]
 
 @app.route('/')
@@ -53,6 +55,7 @@ def personalizar():
         tema = request.form.get('tema', 'claro')
         idioma = request.form.get('idioma', 'pt')
         lembrar = request.form.get('lembrar')
+        cor = request.form.get('cor', '')
 
         if not nome:
             flash('Informe seu nome.', 'erro')
@@ -61,6 +64,7 @@ def personalizar():
         session['nome'] = nome
         session['tema'] = tema
         session['idioma'] = idioma
+        session['cor'] = cor
 
         if lembrar == 'sim':
             session.permanent = True
@@ -198,6 +202,16 @@ def debug_session():
     html += '<a href="/">Voltar</a>'
 
     return html
+
+@app.route('/logout')
+def logout():
+
+    session.clear()
+
+    flash('Você saiu do sistema!', 'info')
+
+    return redirect(url_for('inicio'))
+  
 
 
 if __name__ == '__main__':
